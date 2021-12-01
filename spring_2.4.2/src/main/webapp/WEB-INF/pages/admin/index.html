@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<p>
+
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>E-MAIL</th>
+        </tr> <!--ряд с ячейками заголовков-->
+        <div th:each="users : ${user}">
+            <tr>
+                <td><a th:href="@{/admin/{id}(id=${users.getId()})}" th:text="${users.getId()}">user</a></td>
+                <td>
+<p th:text="${users.getName()}">VALUE</p></td>
+<td><p th:text="${users.getEmail()}">VALUE</p></td>
+<td><p th:text="${users.getPassword()}">VALUE</p></td>
+</tr> <!--ряд с ячейками тела таблицы-->
+</div>
+</table>
+
+
+<hr/>
+<br>
+<a href="/admin/new">Create new user</a>
+
+<p><a th:href="@{/logout}">Logout</a></p>
+
+</body>
+</html>

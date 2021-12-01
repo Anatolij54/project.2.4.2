@@ -2,19 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update user</title>
+    <title>New user</title>
 </head>
 <body>
 
-<form th:method="PATCH" th:action="@{/people/{id}(id=${user.getId()})}" th:object="${user}">
+<form th:method="POST" th:action="@{/admin}" th:object="${user}">
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name"/>
+    <br/>
     <label for="email">Enter email: </label>
     <input type="text" th:field="*{email}" id="email"/>
+    <br/>
     <label for="password">Enter password: </label>
     <input type="text" th:field="*{password}" id="password"/>
-    <br/>
-    <input type="submit" value="Update!"/>
+    <hr/>
+
+    <input type="submit" value="Create!"/>
+
+    <a th:href="@{/logout}">Logout</a>
 </form>
 
 </body>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>NAME</th>
+        <th>E-MAIL</th>
+        <th>PASSWORD</th>
+    </tr> <!--ряд с ячейками заголовков-->
+    <tr>
+        <td><p th:text="${userModel.getName()}">VALUE</p></td>
+        <td><p th:text="${userModel.getEmail()}">VALUE</p></td>
+        <td><p th:text="${userModel.getId()}">VALUE</p></td>
+    </tr> <!--ряд с ячейками тела таблицы-->
+</table>
+
+<p><a th:href="@{/logout}">Logout</a></p>
+
+</body>
+</html>

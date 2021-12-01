@@ -30,6 +30,13 @@ public class UserDAO {
         return getPeople.getSingleResult();
     }
 
+    public User showName(String name) {
+        TypedQuery<User> getPeople = entityManager.createQuery(
+                "SELECT us FROM User us WHERE us.name =: personNAME", User.class);
+        getPeople.setParameter("personNAME", name);
+        return getPeople.getSingleResult();
+    }
+
     @Transactional
     public void save(User user) {
         entityManager.persist(user);
